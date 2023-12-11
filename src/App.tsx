@@ -2,6 +2,7 @@ import ThemeToggler from '@/components/ThemeToggler'
 import Button from './components/ui/button'
 import { BsGithub } from 'solid-icons/bs'
 import Logo from './components/Logo'
+import FileUpload from './components/FileUpload'
 
 function App() {
 	return (
@@ -25,7 +26,7 @@ function App() {
 					Sidebar{' '}
 				</div>
 				<div class="border-2 border-gray-500 h-full w-full rounded-lg p-2">
-					table | charts
+					<FileUpload />
 				</div>
 			</div>
 		</div>

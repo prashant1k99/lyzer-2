@@ -1,7 +1,7 @@
 import { Show } from 'solid-js'
 import { FiSun } from 'solid-icons/fi'
 import { RiWeatherMoonClearLine } from 'solid-icons/ri'
-import { useTheme } from '../lib/context/Theme'
+import { useTheme } from '@/lib/context/Theme'
 import Button from './ui/button'
 
 export default function ThemeToggler() {

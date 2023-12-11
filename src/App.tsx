@@ -1,14 +1,15 @@
 import ThemeToggler from '@/components/ThemeToggler'
 import Button from './components/ui/button'
 import { BsGithub } from 'solid-icons/bs'
+import Logo from './components/Logo'
 
 function App() {
 	return (
 		<div class="bg-background text-foreground">
 			<div class="h-screen w-screen grid grid-rows-[60px_1fr] grid-cols-[400px_1fr] max-w-[2000px] m-auto gap-x-4 pb-4">
-				{/* Hello World
-				 */}
-				<div class="h-full w-full rounded-lg p-2">Logo</div>
+				<div class="h-full w-full rounded-lg p-2">
+					<Logo />
+				</div>
 				<div class="h-full w-full rounded-lg p-2 flex justify-end items-center gap-4">
 					<ThemeToggler />
 					<a

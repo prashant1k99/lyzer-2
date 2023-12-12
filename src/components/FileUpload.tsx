@@ -3,15 +3,33 @@ import Button from './ui/button'
 import { cn } from '@/lib/utils'
 import { RiDocumentContactsBookUploadLine } from 'solid-icons/ri'
 import { TbFileAlert, TbFilePlus } from 'solid-icons/tb'
+import store from '@/store'
 
 export default function FileUpload() {
 	const [fileInputRef, setFileInputRef] = createSignal<HTMLInputElement | null>(
 		null
 	)
+	const { loadData } = store
 	const [overDropZone, setOverDropZone] = createSignal(false)
 	const [isValidFile, setIsValidFile] = createSignal(true)
 
 	const allowedFileTypes = ['csv', 'xlsx', 'json']
+
+	const handleFileChange = (file: File) => {
+		const reader = new FileReader()
+
+		reader.onload = (e) => {
+			const content = e.target?.result
+			if (!content) return
+			loadData('csv', content as string)
+		}
+
+		reader.onerror = (e) => {
+			console.error('File reading error', e)
+		}
+
+		reader.readAsText(file)
+	}
 
 	const checkFileValidity = (file: File): boolean => {
 		const fileExtension = file.name.split('.').pop()?.toLowerCase()
@@ -31,10 +49,6 @@ export default function FileUpload() {
 				setIsValidFile(true)
 			}, 5000)
 	})
-
-	const handleFileChange = (file: File) => {
-		console.log(file.name)
-	}
 
 	return (
 		<div class="w-full h-full flex justify-center items-center">
